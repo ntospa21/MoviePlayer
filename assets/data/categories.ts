@@ -1,7 +1,8 @@
+import flix from '../images/flix2.png'
 export default {
     items: [{
         id: 'category1',
-        title: 'Popular on Ntosflix',
+        title: 'Popular on ',
         movies: [{
             id: 'movie1',
             poster: 'https://m.media-amazon.com/images/M/MV5BYWQwMDNkM2MtODU4OS00OTY3LTgwOTItNjE2Yzc0MzRkMDllXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg',
@@ -70,7 +71,7 @@ export default {
             poster: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/netflix/movie4.jpg',
         }, {
             id: 'movie4',
-            poster: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/netflix/movie5.jpg',
+            poster: 'https://m.media-amazon.com/images/M/MV5BYWQwMDNkM2MtODU4OS00OTY3LTgwOTItNjE2Yzc0MzRkMDllXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg',
         }, {
             id: 'movie5',
             poster: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/netflix/movie1.jpg',
@@ -89,7 +90,7 @@ export default {
             poster: 'https://m.media-amazon.com/images/I/91kyEdJsGYL._AC_SY679_.jpg',
         }, {
             id: 'movie4',
-            poster: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/netflix/movie5.jpg',
+            poster: 'https://m.media-amazon.com/images/M/MV5BYWQwMDNkM2MtODU4OS00OTY3LTgwOTItNjE2Yzc0MzRkMDllXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg',
         }, {
             id: 'movie5',
             poster: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/netflix/movie1.jpg',

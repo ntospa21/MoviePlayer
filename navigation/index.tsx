@@ -1,8 +1,3 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
 import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -17,16 +12,20 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/HomeScreen/index';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { RootStackParamList, RootTabParamList, RootTabScreenProps, RootAuthStack } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import BottomTabNavigation from './BottomTabNavigation'
+import SignIn from '../components/SignInScreen/SignIn';
+import SignUp from '../components/SignUpScreen/SignUp';
+import LoadingScreen from '../components/LoadingScreen/LoadingScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+  
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootNavigator />
+      <RootNavigator /> 
     </NavigationContainer>
   );
 }
@@ -46,7 +45,25 @@ function RootNavigator() {
   );
 }
 
-/**
- * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
- * https://reactnavigation.org/docs/bottom-tab-navigator
- */
+const AuthStack = createNativeStackNavigator<RootAuthStack>();
+const AuthStackScreen = () => (
+  <AuthStack.Navigator>
+    <AuthStack.Screen name='SignInScreen' component={SignIn}/>
+    <AuthStack.Screen name='SignUpScreen' component={SignUp}/>
+
+
+  </AuthStack.Navigator>
+)
+
+// export default () => {
+//   const [isLoading, setIsLoading] = React.useState(true);
+//   if (isLoading) {
+//     return <Loading />
+//   }
+
+//   return (
+//     <NavigationContainer>
+//       <AuthStackScreen />
+//     </NavigationContainer>
+//   )
+// }

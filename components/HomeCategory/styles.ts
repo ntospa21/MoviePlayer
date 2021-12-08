@@ -12,7 +12,7 @@ container: {
     margin: 5
 }, 
 title: {
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "bold"
 }
 });

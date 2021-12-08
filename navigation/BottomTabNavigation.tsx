@@ -14,6 +14,7 @@
  import TabTwoScreen from '../screens/TabTwoScreen';
  import { RootStackParamList, RootTabParamList,HomeParamList, RootTabScreenProps , TabTwoParamList} from '../types';
  import LinkingConfiguration from './LinkingConfiguration';
+import MovieDetailsScreen from '../components/MovieDetailScreen';
  
  
  
@@ -30,6 +31,7 @@
        
        <BottomTab.Screen
          name="Home"
+         
          component={TabOneNavigator}
          options={{
            tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} />,
@@ -66,12 +68,20 @@
  const HomeStack = createNativeStackNavigator<HomeParamList>();
   function TabOneNavigator() {
      return(
-         <HomeStack.Navigator>
-             <HomeStack.Screen
+      <HomeStack.Navigator>
+
+
+<HomeStack.Screen
              name='HomeScreen'
              component={HomeScreen}
              options={{headerShown : false}}
              />
+      <HomeStack.Screen
+      name='MovieDetailScreen'
+      component={MovieDetailsScreen}
+      options={{headerShown : false}}
+      />
+  
          </HomeStack.Navigator>
      )
  }
