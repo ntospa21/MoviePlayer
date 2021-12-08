@@ -18,14 +18,24 @@ import BottomTabNavigation from './BottomTabNavigation'
 import SignIn from '../components/SignInScreen/SignIn';
 import SignUp from '../components/SignUpScreen/SignUp';
 import LoadingScreen from '../components/LoadingScreen/LoadingScreen';
+import HomeScreen from '../screens/HomeScreen/index';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
-  
+  const [isLoading, setIsLoading] = React.useState(true)
+  React.useEffect(()=>{
+    setTimeout(()=>{
+      setIsLoading(!isLoading)
+    }, 4000)
+  }, [])
+  if (isLoading){
+    return <LoadingScreen/>
+  }
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootNavigator /> 
+
+      {isLoading ? <AuthStackScreen />  : <RootNavigator/>}
     </NavigationContainer>
   );
 }
@@ -38,6 +48,7 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigation} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="HomeScreen" component ={HomeScreen} options={{headerShown: false}}/>
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -55,15 +66,3 @@ const AuthStackScreen = () => (
   </AuthStack.Navigator>
 )
 
-// export default () => {
-//   const [isLoading, setIsLoading] = React.useState(true);
-//   if (isLoading) {
-//     return <Loading />
-//   }
-
-//   return (
-//     <NavigationContainer>
-//       <AuthStackScreen />
-//     </NavigationContainer>
-//   )
-// }
